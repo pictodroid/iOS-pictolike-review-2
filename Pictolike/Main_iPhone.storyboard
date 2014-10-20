@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="5rC-gF-E1j">
     <dependencies>
+        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
     </dependencies>
@@ -29,7 +30,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yb8-aR-2um">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yb8-aR-2um">
                                 <rect key="frame" x="93" y="470" width="135" height="30"/>
                                 <state key="normal" image="Happy-Pictoliking-Selected">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -788,13 +789,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xWL-AW-9Dy">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vn7-pi-rcN" customClass="AVCamPreviewView">
+                                    <view contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="vn7-pi-rcN" customClass="AVCamPreviewView">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="442"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <gestureRecognizers/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="320" id="N35-cN-YoJ"/>
-                                        </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SpK-L7-opc">
                                         <rect key="frame" x="0.0" y="441" width="320" height="77"/>
@@ -843,6 +841,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="vn7-pi-rcN" secondAttribute="trailing" id="74V-b9-bPi"/>
                                     <constraint firstItem="SpK-L7-opc" firstAttribute="leading" secondItem="xWL-AW-9Dy" secondAttribute="leading" id="MMi-x1-92c"/>
                                     <constraint firstAttribute="bottom" secondItem="vn7-pi-rcN" secondAttribute="bottom" constant="126" id="cu2-qO-8pf"/>
                                     <constraint firstItem="vn7-pi-rcN" firstAttribute="leading" secondItem="xWL-AW-9Dy" secondAttribute="leading" id="hE8-0G-CXr"/>
@@ -862,8 +861,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="camerabutton" id="68E-fG-Ldj"/>
                     <connections>
+                        <outlet property="flashButton" destination="dGb-kc-g4z" id="rNS-SG-IbG"/>
+                        <outlet property="pButton" destination="DCO-zI-mRQ" id="X5l-US-VbG"/>
                         <outlet property="previewView" destination="vn7-pi-rcN" id="r6P-Nl-o0W"/>
-                        <outlet property="recordButton" destination="dGb-kc-g4z" id="2Ua-up-IV9"/>
                         <outlet property="stillButton" destination="9C0-0a-4Q1" id="1zP-wi-QHg"/>
                     </connections>
                 </viewController>
@@ -951,7 +951,7 @@
                                 </state>
                                 <connections>
                                     <action selector="original_photo:" destination="2Za-bw-JeM" eventType="touchUpInside" id="uFi-2J-dlM"/>
-                                    <segue destination="aep-DU-7xa" kind="push" id="1zw-8c-wrK"/>
+                                    <segue destination="aep-DU-7xa" kind="modal" id="lhI-Ke-bWr"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ktd-nx-QJ6">
@@ -1123,7 +1123,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="2Za-bw-JeM" kind="custom" customClass="DismissSegue" id="f30-oh-K0Y"/>
+                                    <segue destination="2Za-bw-JeM" kind="custom" customClass="DismissSegue" id="mPI-JV-hGc"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cCd-kr-xXt">
@@ -1247,7 +1247,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="f30-oh-K0Y"/>
+        <segue reference="mPI-JV-hGc"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.96862751250000001" green="0.68627452850000004" blue="0.1098039299" alpha="1" colorSpace="deviceRGB"/>
 </document>

@@ -23,7 +23,10 @@
 @property (nonatomic, strong) PFFile *thumbnailFile;
 @property (nonatomic, assign) UIBackgroundTaskIdentifier fileUploadBackgroundTaskId;
 @property (nonatomic, assign) UIBackgroundTaskIdentifier photoPostBackgroundTaskId;
+@property (strong, nonatomic) IBOutlet UIButton *snapButton;
+@property (strong, nonatomic) IBOutlet UIButton *flashButton;
 
+@property (strong, nonatomic) IBOutlet UIButton *pButton;
 -(bool) saveImage: (UIImage*)image;
 
 @end
